@@ -3,14 +3,15 @@ import { Row, Input } from 'react-materialize';
 
 export default class MilestoneItem extends Component {
     render() {
+        const { label } = this.props;
         return (
             <Row>
-                <Input s={2} type='select' label="Milestone 1" defaultValue='1'>
-                    <option value='1'>Marriage</option>
-                    <option value='2'>House</option>
-                    <option value='3'>Baby</option>
+                <Input s={8} type='select' label={label} defaultValue='1'>
+                    <option value='1'>5,000 - 10,000</option>
+                    <option value='2'>15,000 - 20,000</option>
+                    <option value='3'>25,000 - 30,000</option>
                 </Input>
-                <Input placeholder="" s={1} label="Age" />
+                <Input placeholder="" s={3} label="Age" />
             </Row>
         );
     }
