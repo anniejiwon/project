@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Row, Input } from 'react-materialize';
+import { Button } from 'react-materialize';
 import MilestoneItem from './MilestoneItem';
+import '../style.css';
 
 export default class MilestoneContainer extends Component {
     constructor(props) {
@@ -10,6 +11,7 @@ export default class MilestoneContainer extends Component {
             milestoneTwo: null,
         };
         this.handleChangeMilestone = this.handleChangeMilestone.bind(this);
+        this.handleButtonClick = this.handleButtonClick.bind(this);
     }
 
     handleChangeMilestone() {
@@ -18,13 +20,17 @@ export default class MilestoneContainer extends Component {
             milestoneOne: true
         });
     }
+    handleButtonClick() {
+        console.log('---buttonclick');
+    }
 
     render() {
         const { milestoneOne } = this.state;
         return (
-            <div>
-                <MilestoneItem handleChangeMileStone={this.handleChangeMilestone} />
-                <MilestoneItem handleChangeMileStone={this.handleChangeMilestone} />
+            <div className="milestoneContainer" style={{width: '500px'}}>
+                <MilestoneItem handleChangeMileStone={this.handleChangeMilestone} label={'Wedding'} />
+                <MilestoneItem handleChangeMileStone={this.handleChangeMilestone} label={'Housing'}/>
+                <Button floating small className='red' waves='light' icon='add' onClick={this.handleButtonClick} />
             </div>
         );
     }
