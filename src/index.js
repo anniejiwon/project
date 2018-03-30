@@ -1,20 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {Row, Input} from 'react-materialize';
-import MainContainer from './components/MainContainer';
+import Questionnaire from './components/Questionnaire';
+import styles from './style.css';
 
-const Index = () => {
-    return (
-        <div style={{width: '100%', textAlign: 'center'}}>
-            <div style={{display: 'inline-block', height: '50px', fontSize: '50px', marginBottom: '50px'}}>PROJECT: LIFE</div>
-            <MainContainer />
-            <div style={{display: 'inline-block', height: '50px', fontSize: '50px', marginTop: '50px'}}>ANALYSIS</div>
-            <div style={{display: 'flex', width: '100%', height: '500px', background: 'gray', alignItems: 'center', justifyContent: 'center'}}>
-                <span style={{background: 'white'}}>THIS SOMETHING HERE</span>
+export class Index extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: null,
+            marriage: null,
+            house: null
+        };
+        this.handleValue = this.handleValue.bind(this);
+    }
+    handleValue(value) {
+        this.setState({name: value});
+    }
+
+    render() {
+        return (
+            <div className={styles.main}>
+                <div className={styles.header}>PROJECT: LIFE</div>
+                <div>
+                    <Questionnaire handleValue={this.handleValue}/>
+                </div>
             </div>
-        </div>
-    );
-};
+        );
+    }
+}
 
 ReactDOM.render(
     <Index />,
