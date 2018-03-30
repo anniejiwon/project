@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Questionnaire from './components/Questionnaire';
 import styles from './style.css';
+import Container from './components/Container';
 
 export class Index extends Component {
     constructor(props) {
@@ -21,13 +22,13 @@ export class Index extends Component {
         return (
             <div className={styles.main}>
                 <div className={styles.header}>PROJECT: LIFE</div>
-                <div>
-                    <Questionnaire handleValue={this.handleValue}/>
-                </div>
+                <Container />
             </div>
         );
     }
 }
+
+{/* <Questionnaire handleValue={this.handleValue}/ */}
 
 ReactDOM.render(
     <Index />,
